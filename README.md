@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to tech.melmus.ru Pages
 
 You can use the [editor on GitHub](https://github.com/melmus/melmus.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
