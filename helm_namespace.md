@@ -66,7 +66,7 @@ helm init --kube-context demo-team-admin-context --tiller-namespace demo-team --
 ```
 По факту будет создан каталог .helm в домашнем каталоге пользоватлея и запущен один под "tiller-deploy" в рабочем Namespace'е
 ```bash
-kubectl --namespace demo-team --context=17team-demo-team-admin-context get pods
+kubectl --namespace demo-team --context=demo-team-admin-context get pods
 NAME                             READY   STATUS    RESTARTS   AGE
 tiller-deploy-6c979f68f6-x6l7r   1/1     Running   0          17m
 ```
