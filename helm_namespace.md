@@ -53,7 +53,7 @@ Helm должен быть установлен по статье Установ
 
 ## Пример работы пользователя
 
-* Опционально прописываем прокси команды *
+*Опционально прописываем прокси команды*
 ```bash
 export http_proxy=http://USER:PASSWORD@proxy:3128
 export https_proxy=http://USER:PASSWORD@proxy:3128
