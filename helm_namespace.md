@@ -98,7 +98,7 @@ mypostgresql    1           Mon Jul 22 21:16:11 2019    DEPLOYED    postgresql-6
 ```
 У нас есть один Helm-релиз и он успешно DEPLOYED. Узнать более подробную информацию о нём можно через команду status
 ```bash
-helm status mypostgresql --kube-context 17team-demo-team-admin-context --tiller-namespace demo-team
+helm status mypostgresql --kube-context demo-team-admin-context --tiller-namespace demo-team
 LAST DEPLOYED: Tue Jul 23 19:04:06 2019
 NAMESPACE: demo-team
 STATUS: DEPLOYED
