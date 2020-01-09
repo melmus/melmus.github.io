@@ -11,7 +11,7 @@ export PATH=$PATH:/usr/local/bin
 Запускаем установщик:
 ```bash
 chmod +x get_helm.sh
-sudo -E bash get_helm.sh --version v2.14.6
+sudo -E bash get_helm.sh --version v2.16.1
 ```
 
  Делаем костыль, т.к. в Oracle Linux папка /usr/local/bin
