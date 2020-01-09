@@ -787,7 +787,7 @@ kubectl create secret generic basic-auth --from-file=auth -n test-jira
 ```
 ... и прописываем в Ingress настройки Basic-аутентификации в аннотации
 ```bash
-kubectl -n mts-afisha-dmz edit ingress ingress.test-jira.nip.io
+kubectl -n jira-test edit ingress ingress.test-jira.nip.io
 ...
 
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
@@ -892,7 +892,7 @@ vim /opt/prometheus/prometheus.yml
 
 systemctl restart prometheus
 ```
-Далее, подключаемся к Grafana данного сервера мониторинга и устанавливаем новую доску (https://grafana.com/grafana/dashboards/7559 и/или https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards)
+Далее, подключаемся к Grafana данного сервера мониторинга и устанавливаем новую доску (https://grafana.com/grafana/dashboards/7559  и/или https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards )
 
 Добавление производительности Ingress Controller
 
@@ -904,7 +904,7 @@ systemctl restart prometheus
 ```bash
 kubectl -n ingress-nginx get pods -o wide
 NAME                                        READY   STATUS              RESTARTS   AGE   IP            NODE                   NOMINATED NODE
-nginx-ingress-controller-64f56b6f7b-5x6f2   1/1     Running             0          91m   10.244.3.11   ngenie-geo-kbr-wrk03   <none>
+nginx-ingress-controller-64f56b6f7b-5x6f2   1/1     Running             0          91m   10.244.3.11   kbr-wrk03      <none>
 ```
 
 Данное значение можно увеличить прям на горячую через правку deployment'а. Например, увеличим это количество до трёх (по количеству нод)
