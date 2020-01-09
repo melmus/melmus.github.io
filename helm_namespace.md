@@ -187,6 +187,6 @@ ttt=>
 
 Если данный релиз больше не нужен - можете удалить всё следующими командами
 ```bash
-kubectl --namespace demo-team  --context=17team-demo-team-admin-context delete service mypostgres
-helm delete --purge mypostgresql --kube-context 17team-demo-team-admin-context --tiller-namespace demo-team
+kubectl --namespace demo-team  --context=demo-team-admin-context delete service mypostgres
+helm delete --purge mypostgresql --kube-context demo-team-admin-context --tiller-namespace demo-team
 ```
