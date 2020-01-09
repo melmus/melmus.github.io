@@ -2,14 +2,14 @@
 Установка
 
 *Опционально - Пропишите Proxy*
-```
+```bash
 export http_proxy="http://login:password@proxy:3128"
 export https_proxy="https://login:password@proxy:3128"
 export ftp_proxy="ftp://login:password@proxy:3128"
 ```
 
 Добавьте в docker-репозитории и запустите установку всех нужных приложений
-```
+```bash
 # yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 # yum -y install epel-release 
 
@@ -25,7 +25,7 @@ yum -y install oracle-epel-release-el7.x86_64
 ```
 
 Пропишите Proxy в Docker-сервис и запустите его
-```
+```bash
 # mkdir -p /etc/systemd/system/docker.service.d
 # vi /etc/systemd/system/docker.service.d/https-proxy.conf
 [Service]
@@ -35,7 +35,7 @@ Environment="NO_PROXY=localhost,127.0.0.1,10.0.0.0/8,registry.bss.ural.mts.ru"
 # systemctl daemon-reload && systemctl enable docker && systemctl start docker
 ```
 Скачайте и распакуйте интересующую версию AWX на https://github.com/ansible/awx/releases
-```
+```bash
 # cd /opt
 # wget https://github.com/ansible/awx/archive/6.1.0.tar.gz
 # tar xf *0.tar.gz
@@ -44,7 +44,7 @@ Environment="NO_PROXY=localhost,127.0.0.1,10.0.0.0/8,registry.bss.ural.mts.ru"
 # cd awx/installer/
 ```
 Поменяйте дефолтные параметры от AWX
-```
+```bash
 *Задание пароли и генерация секрета*
 # sed -i 's/admin_password=password/admin_password=*PASSWORD*/g' inventory
  # sed -i "s/docker_compose_dir=\/tmp\/awxcompose/docker_compose_dir=\/opt\/awx\/awxcompose/g" inventory
@@ -60,17 +60,17 @@ Environment="NO_PROXY=localhost,127.0.0.1,10.0.0.0/8,registry.bss.ural.mts.ru"
 # echo 'no_proxy=git.bss.ural.mts.ru' >> inventory
 ```
 Запустите установку
-```
+```bash
 ansible-playbook -i inventory install.yml
 ```
 По окончании установки откройте в Firewall'е порт 80
-```
+```bash
 firewall-cmd --add-port=80/tcp
 firewall-cmd --add-port=80/tcp --permanent
 ```
 
 Делаем AWX в виде сервиса
-```
+```bash
 # cat > /etc/systemd/system/awx.service << END
 [Unit]
 Description=AWX Service
@@ -88,7 +88,7 @@ WantedBy=multi-user.target
 END
 ```
 Включаем сервис
-```
+```bash
 systemctl daemon-reload
 systemctl enable awx
 ```
