@@ -1,12 +1,12 @@
 # Links documentation
 Здесь собраны наиболее популярные статьи по настройке Linux и соответствующих DevOps практик 
 
+## Linux
+- [OpenLDAP](https://tech.melmus.ru/openldap)
+- [PowerDNS](https://tech.melmus.ru/powerdns)
 
-[AWX](https://tech.melmus.ru/awx)
-
-[OpenLDAP](https://tech.melmus.ru/openldap)
-
-[PowerDNS](https://tech.melmus.ru/powerdns)
+## Ansible
+- [AWX](https://tech.melmus.ru/awx)
 
 ## Kubernetes
 - [Helmv2](https://tech.melmus.ru/helm)
