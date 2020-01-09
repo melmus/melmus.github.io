@@ -1,28 +1,26 @@
-# Header 1
-OpenLDAP on Oracle Linux
-
+# OpenLDAP on Oracle Linux
 
 
 Устанавливаем необходимые пакеты для настройки OpenLDAP
-<code>
+```
 yum install openldap openldap-servers openldap-clients nss-pam-ldapd
-	</code>
+```
 Меняем владельца в /var/lib/ldap:
-
+```
 cd /var/lib/ldap 
 chown ldap:ldap ./*
-
+```
 Создаем зашифрованный пароль для администратора LDAP
-
+```
 slappasswd -h {SSHA} 
 New password: password 
 Re-enter new password:
 password {SSHA}lkMShz73MZBic19Q4pfOaXNxpLN3wLRy
-
+```
 Создаем конфигурационный файл для LDAP
 
 Основной конфигурационный файл, который как правило располагается в /etc/openldap/slap.d/mydomain.ldif
-
+```
 include file:///etc/openldap/schema/cosine.ldif
 include file:///etc/openldap/schema/nis.ldif
 include file:///etc/openldap/schema/inetorgperson.ldif
@@ -71,18 +69,18 @@ olcAccess: to dn.base=""
 olcAccess: to *
   by dn="cn=admin,dc=mydomain,dc=com"
   write by * read
-
+```
 Добавляем конфигурацию:
-
+```
 # ldapadd -Y EXTERNAL -H ldapi:/// -f mydomain.ldif 
 SASL/EXTERNAL authentication started 
 SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth 
 SASL SSF: 0 adding new entry "cn=module,cn=config" adding new entry "olcDatabase=hdb,cn=config"
-
+```
 Конфигурация об организации
 
 Создаем конфигурацию об организации:
-
+```
 dn: dc=mydomain,dc=com
 dc: mydom
 objectclass: dcObject
@@ -98,51 +96,51 @@ ou: people
 dn: ou=Groups,dc=mydomain,dc=com
 objectClass: organizationalUnit
 ou: groups
-
+```
 Добавляем конфигурацию об организации:
-
+```
 ldapadd -cxWD "cn=admin,dc=mydomain,dc=com" -f mydomaincom.ldif
 Enter LDAP Password: admin_password 
 adding new entry "dc=mydomain,dc=com"
 adding new entry "ou=People,dc=mydomain,dc=com"
 adding new entry "ou=Groups,dc=mydomain,dc=com"
-
-Создание групп
+```
+## Создание групп
 
 Создаем файл с настройкой для группы ngenie:
-
-# Group ngenie
+```
+# Groups
 dn: cn=employees,ou=Groups,dc=mydomain,dc=com
 cn: ngenie
 gidNumber: 626
 objectClass: top
 objectclass: posixGroup
-
+```
 Применяем файл с настройкой группы:
-
+```
 ldapadd -cxWD "cn=admin,dc=mydomain,dc=com" -f ngenie-group.ldif
 Enter LDAP Password: admin_password
 adding new entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com"
-
+```
 Проверяем наличие группы по gid = 626
-
+```
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
 dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
 cn: ngenie
 gidNumber: 626
 objectClass: top
 objectClass: posixGroup
-
+```
 Создание пользователя в LDAP
 
 Создание пользователя на сервере LDAP:
-
+```
 useradd -b /nethome -s /sbin/nologin -u 5159 -U user1
 
 id user1 uid=5159(user1) gid=5159(user1) groups=5159(user1)
-
+```
 Создаём файл с настройкой для user1:
-
+```
 # UPG user1 
 dn: cn=user1,ou=Groups,dc=mydomain,dc=com
 cn: user1
@@ -165,47 +163,47 @@ objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
 userPassword: {SSHA}x
-
+```
 Применяем:
-
+```
 ldapadd -cxWD cn=admin,dc=mydomain,dc=com -f user1-user.ldif
 Enter LDAP Password: admin_password
 adding new entry "cn=user1,ou=Groups,dc=mydomain,dc=com"
 adding new entry "uid=user1,ou=People,dc=mydomain,dc=com"
-
+```
 Создание и смена пароля пользователю
 
 Задаем пароль, этой же командой его можно сменить:
-
+```
 ldappasswd -xWD "cn=admin,dc=mydomain,dc=com" -S "uid=user1,ou=people,dc=mydomain,dc=com"
 New password: user_password
 Re-enter new password: user_password
 Enter LDAP Password: admin_password
-
+```
 Проверяем наличие пользователя:
-
+```
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" '(|(uid=iser1)(cn=user1))' 
-
+```
 Добавление пользователя в группу
-
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
+```
+dn: cn=company,ou=Groups,dc=mydomain,dc=com
 changetype: modify
 add: memberUid
 memberUid: user1
 
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
+dn: cn=company,ou=Groups,dc=mydomain,dc=com
 changetype: modify
 add: memberUid
 memberUid: user2
-
+```
 Применяем конфиг добавления пользователя в группу:
-
-ldapmodify -xcWD "cn=admin,dc=mydomain,dc=com" -f ngenie-add-users.ldif
+```
+ldapmodify -xcWD "cn=admin,dc=mydomain,dc=com" -f add-users.ldif
 Enter New Password:
 Enter LDAP Password: user_password modifying entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com" 
-
+```
 Проверяем состав пользователей в группе ngenie
-
+```
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
 dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
 cn: ngenie gidNumber: 626
@@ -213,27 +211,18 @@ objectClass: top
 objectClass: posixGroup
 memberUid: user1
 memberUid: user2
-
+```
 
 Редактирование пользователя
 
-Хороший tutorial лежит здесь:
-
-https://www.digitalocean.com/community/tutorials/how-to-use-ldif-files-to-make-changes-to-an-openldap-system
-
 Например, мы хотим изменить поле "mail" пользователя. Подготавливаем LDIF-файл:
-
+```
 dn: cn=user1,ou=Groups,dc=mydomain,dc=com
 changetype: modify
 replace: mail
 mail: user1@example.com
-
+```
 Применяем файл:
-
+```
 ldapmodify -xWD "cn=admin,dc=mydomain,dc=com" -f user1_change_mail.ldif
-
-
-
-
-</body>
-</html>
+```
