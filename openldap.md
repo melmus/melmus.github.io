@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>OpenLDAP on Oracle Linux</title>
-</head>
-<body>
+# Header 1
+OpenLDAP on Oracle Linux
+
 
 
 Устанавливаем необходимые пакеты для настройки OpenLDAP
