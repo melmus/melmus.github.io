@@ -68,9 +68,6 @@ ansible-playbook -i inventory install.yml
 firewall-cmd --add-port=80/tcp
 firewall-cmd --add-port=80/tcp --permanent
 ```
-Готово. Можете подключаться к серверу
-
-[DevOps > Установка AWX (official, docker) > Выделение_999(241).png]
 
 Делаем AWX в виде сервиса
 ```
