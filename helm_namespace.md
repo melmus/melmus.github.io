@@ -144,7 +144,7 @@ To connect to your database from outside the cluster execute the following comma
     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U test -d ttt -p 5432
 ```
 
-Кроме статуса ниже ещё предложены возможности подключения через запуск psql в контейнере или через port-forward. К сожалению, использовать psql в контейнере не удобно, а port-forward не работает в закрытой сети ЦОД. Однако есть возможность вывести его через NodePort
+Кроме статуса ниже ещё предложены возможности подключения через запуск psql в контейнере или через port-forward. К сожалению, использовать psql в контейнере не удобно, а port-forward не работает в закрытой сети. Однако есть возможность вывести его через NodePort
 
 Делается это вот так:
 ```yaml
