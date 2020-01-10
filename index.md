@@ -8,6 +8,7 @@
 
 ## Ansible
 - [AWX](https://tech.melmus.ru/awx)
+- [AWX: Migrate, backup](https://tech.melmus.ru/awx_migrate)
 
 ## Kubernetes
 - [Helmv2](https://tech.melmus.ru/helm)
