@@ -16,7 +16,8 @@ firewall-cmd --add-port=9100/tcp --add-port=9200/tcp --add-port=5400-5499/tcp --
 
 По-умолчанию, jaegger поставляется в виде докер-контейнеров, и похоже предусмотрен для работы в kubernetes. Развернем докер на отдельном сервере и подняли три контейнера.
 
-### Agent :
+### Agent:
+
 | Port | Protocol | Function |
 | --- |:---:| ---:|
 | 6831 | UDP |  accept jaeger.thrift in compact Thrift protocol used by most current Jaeger clients |
@@ -39,6 +40,7 @@ jaegertracing/jaeger-agent:1.12 \
 ```
 
 ### Query:
+
 |Port  |	Protocol | Function |
 | --- |:---:| ---:|
 | 14270 |	HTTP |	Health check at |
