@@ -76,11 +76,7 @@ curl -s -XPOST localhost:9090/-/reload && systemctl restart blackbox.service
 ```
 
 Импортируем дашборд для проверки URL  в Prometheus:
-<details>
-<summary>
-<a class="btnfire small stroke"><em class="fas fa-chevron-circle-down"></em>&nbsp;&nbsp;<b>prometheus-blackbox-exporter.json</b></a>    
-</summary>
-
+```json
 {
   "__inputs": [
     {
@@ -1190,7 +1186,6 @@ curl -s -XPOST localhost:9090/-/reload && systemctl restart blackbox.service
 }
 
 ```
-</details>
 
 Настройка уведомлений, в случае проблем с каким-либо из URL:
 ```yaml
