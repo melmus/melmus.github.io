@@ -81,8 +81,6 @@ curl -s -XPOST localhost:9090/-/reload && systemctl restart blackbox.service
 <a class="btnfire small stroke"><em class="fas fa-chevron-circle-down"></em>&nbsp;&nbsp;<b>prometheus-blackbox-exporter.json</b></a>    
 </summary>
 
-```json
-
 {
   "__inputs": [
     {
