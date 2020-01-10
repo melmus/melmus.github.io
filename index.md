@@ -4,6 +4,7 @@
 ## Linux
 - [OpenLDAP](https://tech.melmus.ru/openldap)
 - [PowerDNS](https://tech.melmus.ru/powerdns)
+- [Borg Backup](https://tech.melmus.ru/borg)
 
 ## Ansible
 - [AWX](https://tech.melmus.ru/awx)
