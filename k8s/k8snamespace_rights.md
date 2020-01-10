@@ -217,13 +217,14 @@ No resources found.
 То есть после данного примера успешно работают все перечисленные Namespace'ы с указанием одного из Context'а (но не дальше перечисленных). 
 
 ## Пример
-
+```bash
 kubectl --context=demo-dev-admin-context -n demo-dev get services
 No resources found.
 kubectl --context=demo-dev-admin-context -n demo-dev-security get services
 No resources found. 
 kubectl --context=demo-dev-admin-context -n test get services
 Error from server (Forbidden): pods is forbidden: User "demo-dev" cannot list resource "services" in API group "" in the namespace "test"
+```
 
 Полезные команды для пользователя для просмотра конфига и переключение контекста:
 ```bash

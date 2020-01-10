@@ -130,8 +130,8 @@ root       7334  0.0  0.0  72296  6540 ?        Ss   19:48   0:00      \_ /usr/s
 
 Попробуем нагрузить все 2 ядра - запустим 4 ресурсоёмких процесса.
 ```bash
-ssh -p 30332 root@0700ngenie-outside-test-kbr-mst01.ngenie.mtsit.com
-root@0700ngenie-outside-test-kbr-mst01.ngenie.mtsit.com's password: 
+ssh -p 30332 root@k8s.testdomain.com
+root@k8s.testdomain.com's password: 
 root@sshd-5c64f7646f-l44jj:~# yes > /dev/null & 
 [1] 129
 root@sshd-5c64f7646f-l44jj:~# yes > /dev/null & 

@@ -107,26 +107,26 @@ adding new entry "ou=Groups,dc=mydomain,dc=com"
 ```
 ## Создание групп
 
-Создаем файл с настройкой для группы ngenie:
+Создаем файл с настройкой для группы devops:
 ```bash
 # Groups
 dn: cn=employees,ou=Groups,dc=mydomain,dc=com
-cn: ngenie
+cn: devops
 gidNumber: 626
 objectClass: top
 objectclass: posixGroup
 ```
 Применяем файл с настройкой группы:
 ```bash
-ldapadd -cxWD "cn=admin,dc=mydomain,dc=com" -f ngenie-group.ldif
+ldapadd -cxWD "cn=admin,dc=mydomain,dc=com" -f devops-group.ldif
 Enter LDAP Password: admin_password
-adding new entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com"
+adding new entry "cn=devops,ou=Groups,dc=mydomain,dc=com"
 ```
 Проверяем наличие группы по gid = 626
 ```bash
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
-cn: ngenie
+dn: cn=devops,ou=Groups,dc=mydomain,dc=com
+cn: devops
 gidNumber: 626
 objectClass: top
 objectClass: posixGroup
@@ -157,7 +157,7 @@ uidNumber: 5159
 gidNumber: 5159
 homeDirectory: /home/user1
 loginShell: /bin/bash
-mail: user1@mts.ru
+mail: user1@mydomain.com
 objectClass: top
 objectClass: inetOrgPerson
 objectClass: posixAccount
@@ -200,13 +200,13 @@ memberUid: user2
 ```bash
 ldapmodify -xcWD "cn=admin,dc=mydomain,dc=com" -f add-users.ldif
 Enter New Password:
-Enter LDAP Password: user_password modifying entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com" 
+Enter LDAP Password: user_password modifying entry "cn=devops,ou=Groups,dc=mydomain,dc=com" 
 ```
-Проверяем состав пользователей в группе ngenie
+Проверяем состав пользователей в группе devops
 ```bash
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
-cn: ngenie gidNumber: 626
+dn: cn=devops,ou=Groups,dc=mydomain,dc=com
+cn: devops gidNumber: 626
 objectClass: top
 objectClass: posixGroup
 memberUid: user1
@@ -220,7 +220,7 @@ memberUid: user2
 dn: cn=user1,ou=Groups,dc=mydomain,dc=com
 changetype: modify
 replace: mail
-mail: user1@example.com
+mail: user1@mydomain.com
 ```
 Применяем файл:
 ```bash
