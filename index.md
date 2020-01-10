@@ -21,3 +21,6 @@
 
 ## Prometheus
 - [Blackbox exporter](https://tech.melmus.ru/blackbox)
+
+## Jaeger
+- [Jaeger install](https://tech.melmus.ru/jaeger)
