@@ -27,6 +27,8 @@
 - [Blackbox exporter](https://tech.melmus.ru/blackbox)
 
 ## ELK (Elasticesearch, Logstash, Kibana)
+- [Jenkins Logs in ELK](https://tech.melmus.ru/elk_jenkins)
+- [Delete indices](https://tech.melmus.ru/elk_delindec)
 
 ## Jaeger
 - [Jaeger install](https://tech.melmus.ru/jaeger)
