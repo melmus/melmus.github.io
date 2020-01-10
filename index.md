@@ -1,4 +1,4 @@
-# Links documentation
+# DevOps documentation
 Здесь собраны наиболее популярные статьи по настройке Linux и соответствующих DevOps практик 
 
 ## Linux
