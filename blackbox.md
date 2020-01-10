@@ -82,6 +82,7 @@ curl -s -XPOST localhost:9090/-/reload && systemctl restart blackbox.service
 </summary>
 
 ```json
+
 {
   "__inputs": [
     {
@@ -1189,6 +1190,7 @@ curl -s -XPOST localhost:9090/-/reload && systemctl restart blackbox.service
   "uid": "xtkCtBkiz",
   "version": 2
 }
+
 ```
 </details>
 
