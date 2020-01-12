@@ -3,6 +3,7 @@
 
 ## Linux
 - [LVM](https://tech.melmus.ru/lvm)
+- [LVM resize](https://tech.melmus.ru/lvmrs)
 - [OpenLDAP](https://tech.melmus.ru/openldap)
 - [PowerDNS](https://tech.melmus.ru/powerdns)
 - [Borg Backup](https://tech.melmus.ru/borg)
