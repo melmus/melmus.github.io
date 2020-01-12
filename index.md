@@ -2,6 +2,8 @@
 Здесь собраны наиболее популярные статьи по настройке Linux и соответствующих DevOps практик 
 
 ## Linux
+- [LVM](https://tech.melmus.ru/lvm)
+- [LVM resize](https://tech.melmus.ru/lvmrs)
 - [OpenLDAP](https://tech.melmus.ru/openldap)
 - [PowerDNS](https://tech.melmus.ru/powerdns)
 - [Borg Backup](https://tech.melmus.ru/borg)
@@ -25,6 +27,10 @@
 
 ## Prometheus
 - [Blackbox exporter](https://tech.melmus.ru/blackbox)
+
+## ELK (Elasticesearch, Logstash, Kibana)
+- [Jenkins Logs in ELK](https://tech.melmus.ru/elk_jenkins)
+- [Delete indices](https://tech.melmus.ru/elk_delindec)
 
 ## Jaeger
 - [Jaeger install](https://tech.melmus.ru/jaeger)
