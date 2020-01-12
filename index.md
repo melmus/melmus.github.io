@@ -2,6 +2,7 @@
 Здесь собраны наиболее популярные статьи по настройке Linux и соответствующих DevOps практик 
 
 ## Linux
+- [LVM](https://tech.melmus.ru/lvm)
 - [OpenLDAP](https://tech.melmus.ru/openldap)
 - [PowerDNS](https://tech.melmus.ru/powerdns)
 - [Borg Backup](https://tech.melmus.ru/borg)
