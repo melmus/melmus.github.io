@@ -34,3 +34,6 @@
 
 ## Jaeger
 - [Jaeger install](https://tech.melmus.ru/jaeger)
+
+## Maven
+- [Maven: шифрование паролей](https://tech.melmus.ru/maven_pass)
