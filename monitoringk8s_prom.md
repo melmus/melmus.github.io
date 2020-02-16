@@ -367,7 +367,7 @@ systemctl restart prometheus
   <summary>Kubernetes / Pods Свернуть исходный код</summary>
 
 
-```json
+```
 {
   "annotations": {
     "list": [
