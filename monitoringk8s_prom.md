@@ -56,8 +56,8 @@ kubectl apply -f /tmp/prometheus-operator-kube-state-metrics-nodeport.yml
 service/prometheus-operator-kube-state-metrics-nodeport create/tmp/sort
 ```
 Данные сервис генерует следующие метрики на уровне кластера
-
- Список
+<details>
+  <summary>metrics cluster</summary>
 kube_pod_container_info
 kube_pod_container_resource_limits
 kube_pod_container_resource_limits_cpu_cores
@@ -82,6 +82,7 @@ kube_pod_status_phase
 kube_pod_status_ready
 kube_pod_status_scheduled
 kube_pod_status_scheduled_time
+</details>
 К сожалению, тут находятся не все метрики.
 
 нет метрик Node_exporter т.к. они уже используются в самой ОС. Но если что, можно их вывести по похожему выше пути
