@@ -333,7 +333,9 @@ container_start_time_seconds
 container_tasks_state
 </details>
 
+
 ### Prometheus
+
 Заносим в Prometheus. Поскольку даже на маленьком Kubernetes-кластере метрики от cAdvisor получается ~1МБ весом - мы сократим время считывания метрик до ежеминутного значения
 ```bash
 vim /opt/prometheus/prometheus.yml
