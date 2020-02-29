@@ -23,7 +23,7 @@
 - [k8snamespace_rights](https://tech.melmus.ru/k8snamespace_rights)
 - [Persistance Volume](https://tech.melmus.ru/persistentvolume)
 - [Dynamic Persistance Volume](https://tech.melmus.ru/pvk8s)
-- [Request and Limits k8s](https://tech.melmus.ru/reqlim_k8s)
+- [Request and Limits k8s ](https://tech.melmus.ru/reqlim_k8s)
 
 ## Prometheus
 - [Blackbox exporter](https://tech.melmus.ru/blackbox)
