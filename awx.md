@@ -29,9 +29,9 @@ pip install docker-compose
 mkdir -p /etc/systemd/system/docker.service.d
 vim /etc/systemd/system/docker.service.d/https-proxy.conf
 [Service]
-Environment="HTTP_PROXY=http://login:password@bproxy.nw.mts.ru:3131/"
-Environment="HTTPS_PROXY=http://login:password@bproxy.nw.mts.ru:3131/"
-Environment="NO_PROXY=localhost,127.0.0.1,10.0.0.0/8,registry.bss.ural.mts.ru"
+Environment="HTTP_PROXY=http://login:password@proxy:3128/"
+Environment="HTTPS_PROXY=http://login:password@proxy:3128/"
+Environment="NO_PROXY=localhost,127.0.0.1"
 
 systemctl daemon-reload && systemctl enable docker && systemctl start docker
 ```
