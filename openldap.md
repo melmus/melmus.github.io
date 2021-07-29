@@ -200,13 +200,13 @@ memberUid: user2
 ```bash
 ldapmodify -xcWD "cn=admin,dc=mydomain,dc=com" -f add-users.ldif
 Enter New Password:
-Enter LDAP Password: user_password modifying entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com" 
+Enter LDAP Password: user_password modifying entry "cn=devops,ou=Groups,dc=mydomain,dc=com" 
 ```
 Проверяем состав пользователей в группе devops
 ```bash
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
 dn: cn=devops,ou=Groups,dc=mydomain,dc=com
-cn: ngenie gidNumber: 626
+cn: devops gidNumber: 626
 objectClass: top
 objectClass: posixGroup
 memberUid: user1
