@@ -202,10 +202,10 @@ ldapmodify -xcWD "cn=admin,dc=mydomain,dc=com" -f add-users.ldif
 Enter New Password:
 Enter LDAP Password: user_password modifying entry "cn=ngenie,ou=Groups,dc=mydomain,dc=com" 
 ```
-Проверяем состав пользователей в группе ngenie
+Проверяем состав пользователей в группе devops
 ```bash
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
+dn: cn=devops,ou=Groups,dc=mydomain,dc=com
 cn: ngenie gidNumber: 626
 objectClass: top
 objectClass: posixGroup
@@ -220,7 +220,7 @@ memberUid: user2
 dn: cn=user1,ou=Groups,dc=mydomain,dc=com
 changetype: modify
 replace: mail
-mail: user1@example.com
+mail: user1@mydomain.com
 ```
 Применяем файл:
 ```bash
