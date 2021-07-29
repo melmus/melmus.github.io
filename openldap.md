@@ -125,7 +125,7 @@ adding new entry "cn=devops,ou=Groups,dc=mydomain,dc=com"
 Проверяем наличие группы по gid = 626
 ```bash
 ldapsearch -LLL -x -b "dc=mydomain,dc=com" gidNumber=626
-dn: cn=ngenie,ou=Groups,dc=mydomain,dc=com
+dn: cn=devops,ou=Groups,dc=mydomain,dc=com
 cn: devops
 gidNumber: 626
 objectClass: top
@@ -157,7 +157,7 @@ uidNumber: 5159
 gidNumber: 5159
 homeDirectory: /home/user1
 loginShell: /bin/bash
-mail: user1@mts.ru
+mail: user1@mydomain.com
 objectClass: top
 objectClass: inetOrgPerson
 objectClass: posixAccount
